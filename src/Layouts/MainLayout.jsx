@@ -12,7 +12,8 @@ const MainLayout = () => {
                 </nav>
             </header>
 
-            <main className='max-w-screen-2xl min-h-screen border mx-auto'>
+            <main className='max-w-screen-2xl min-h-screen  mx-auto'>
+                
                 <section>
                     <Outlet></Outlet>
                 </section>

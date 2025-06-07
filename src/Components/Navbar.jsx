@@ -40,7 +40,8 @@ const Navbar = () => {
               {links}
             </ul>
           </div>
-          <a className="btn pl-0 btn-ghost text-xl">
+          <a className="btn pl-0 hover:scale-110 hover:border-none btn-ghost text-xl hover:bg-transparent hover:text-inherit hover:shadow-none transition-none">
+
             <span className="text-cdark max-sm:text-lg">Event</span>
             <span className="text-cwhite max-sm:text-lg -ml-1">FLOW</span>
           </a>
