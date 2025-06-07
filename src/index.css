@@ -1,0 +1,64 @@
+@import url("https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap");
+@import "tailwindcss";
+@plugin "daisyui";
+
+/* Base Rubik font class */
+.rubik {
+  font-family: "Rubik", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+}
+
+/* Weight Variants */
+.rubik-300 {
+  font-weight: 300;
+}
+.rubik-400 {
+  font-weight: 400;
+}
+.rubik-500 {
+  font-weight: 500;
+}
+.rubik-700 {
+  font-weight: 700;
+}
+.rubik-900 {
+  font-weight: 900;
+}
+
+/* Italic Variants */
+.rubik-italic {
+  font-style: italic;
+}
+
+* {
+  font-family: "Rubik", sans-serif;
+}
+@theme {
+ 
+  --color-cdark: #1e2835;   /* bgdark - a dark bluish-gray */
+  --color-corange:   #f99e72;   /* textsoft - soft orange */
+  --color-cred:      #dd4b4b;   /* heading - bold red */
+  --color-cwhite:    #f5eddf;   /* secondary - soft ivory */
+
+}
+
+.active {
+  color: #f99e72;
+  text-decoration: none;
+  position: relative;
+  transition: color 0.3s ease;
+}
+
+.active::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -2px;
+  height: 2px;
+  width: 100%;
+  background-color: #f99e72;
+  transform: scaleX(1);
+  transform-origin: left;
+  transition: transform 0.3s ease;
+}
