@@ -1,0 +1,92 @@
+[
+  {
+    "id": "event_e002",
+    "name": "EWU Robofest 2024",
+    "thumbnail": "https://i.ibb.co/VYzvLs8h/468340462-122138366480366498-4228424060199837498-n-1.jpg",
+    "category": "Robotics",
+    "date": "2024-09-20",
+    "location": "East West University, Dhaka",
+    "entry_fee": 0,
+    "description": "A national-level robotics competition promoting innovation, engineering, and student collaboration in automation and tech."
+  },
+  {
+    "id": "event_e003",
+    "name": "Web Programming and AI with Jhankar Mahbub",
+    "thumbnail": "https://i.ibb.co/WpY59SsQ/ewu.png",
+    "category": "Technology & Education",
+    "date": "2024-11-10",
+    "location": "East West University, Dhaka",
+    "entry_fee": 100,
+    "description": "A special session featuring Jhankar Mahbub, diving deep into web development, AI, and career building in tech."
+  },
+  {
+    "id": "event_e004",
+    "name": "Pubali Bank Breaking Band",
+    "thumbnail": "https://i.ibb.co/GfxpSY6G/pubali-bank-breaking-band.png",
+    "category": "Music",
+    "date": "2024-08-05",
+    "location": "Bangabandhu Arena, Dhaka",
+    "entry_fee": 200,
+    "description": "A dynamic musical showdown sponsored by Pubali Bank, showcasing emerging and popular bands of the country."
+  },
+  {
+    "id": "event_e005",
+    "name": "Gigabyte presents Power of AI Computing 2024",
+    "thumbnail": "https://i.ibb.co/9mCZSkjM/gigabyte-ai.jpg",
+    "category": "Technology",
+    "date": "2024-07-15",
+    "location": "Hotel Sonargaon, Dhaka",
+    "entry_fee": 500,
+    "description": "An immersive event featuring the latest in AI computing technologies and innovations, sponsored by Gigabyte."
+  },
+  {
+    "id": "event_e006",
+    "name": "Gigabyte presents Power of AI Computing 2023",
+    "thumbnail": "https://i.ibb.co/v4J2L1fk/gigbyte.jpg",
+    "category": "Technology",
+    "date": "2023-07-10",
+    "location": "Radisson Blu Dhaka",
+    "entry_fee": 500,
+    "description": "Revisit the success of 2023’s biggest AI technology event that brought together engineers, developers, and tech enthusiasts."
+  },
+  {
+    "id": "event_e007",
+    "name": "BUET Boiler Operation",
+    "thumbnail": "https://i.ibb.co/FqX2c4jC/buet.png",
+    "category": "Engineering",
+    "date": "2024-06-25",
+    "location": "BUET Auditorium, Dhaka",
+    "entry_fee": 200,
+    "description": "A technical seminar and hands-on session on boiler operation and industrial safety by BUET engineering department."
+  },
+  {
+    "id": "event_e008",
+    "name": "Bangladesh Startup Investment Report",
+    "thumbnail": "https://i.ibb.co/pj8Rq6Ms/bdstartup.webp",
+    "category": "Business & Startups",
+    "date": "2024-10-05",
+    "location": "Startup Bangladesh HQ, Dhaka",
+    "entry_fee": 0,
+    "description": "A presentation and panel discussion highlighting the latest startup investment trends and insights in Bangladesh."
+  },
+  {
+    "id": "event_e009",
+    "name": "Australian Education Expo",
+    "thumbnail": "https://i.ibb.co/s9dmRKvG/australia.jpg",
+    "category": "Education",
+    "date": "2024-08-30",
+    "location": "Pan Pacific Sonargaon Hotel, Dhaka",
+    "entry_fee": 0,
+    "description": "Explore study opportunities in Australia with university reps, scholarship guidance, and visa consultations."
+  },
+  {
+    "id": "event_e010",
+    "name": "ICT Olympiad Bangladesh",
+    "thumbnail": "https://i.ibb.co/NfVm6cX/ict.jpg",
+    "category": "Technology & Education",
+    "date": "2024-12-01",
+    "location": "BICC, Dhaka",
+    "entry_fee": 300,
+    "description": "A nationwide ICT competition for students, promoting coding, logical thinking, and technological problem-solving."
+  }
+]

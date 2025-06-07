@@ -1,0 +1,83 @@
+[
+  {
+    "id": "review_r001",
+    "event_id": "event_e002",
+    "event": "Robofest 2024",
+    "reviewer_name": "Amina Rahman",
+    "rating": 4.8,
+    "comment": "Robofest 2024 was incredibly well-organized! Loved the innovation from students.",
+    "date": "2024-09-21"
+  },
+  {
+    "id": "review_r002",
+    "event_id": "event_e003",
+    "event": "Tech Talk with Jhankar Mahbub",
+    "reviewer_name": "Tariq Hossain",
+    "rating": 5.0,
+    "comment": "Jhankar bhai's session was full of insights and energy. A must-attend!",
+    "date": "2024-11-11"
+  },
+  {
+    "id": "review_r003",
+    "event_id": "event_e004",
+    "event": "Pubali Bank Music Night",
+    "reviewer_name": "Nabila Ahmed",
+    "rating": 4.5,
+    "comment": "Great bands, fantastic crowd. Pubali Bank nailed it!",
+    "date": "2024-08-06"
+  },
+  {
+    "id": "review_r004",
+    "event_id": "event_e005",
+    "event": "AI Summit 2024",
+    "reviewer_name": "Shahriar Alam",
+    "rating": 4.7,
+    "comment": "Cutting-edge AI demos and speakers. Loved the depth of topics.",
+    "date": "2024-07-16"
+  },
+  {
+    "id": "review_r005",
+    "event_id": "event_e006",
+    "event": "Digital Bangladesh Expo",
+    "reviewer_name": "Ritika Sultana",
+    "rating": 4.2,
+    "comment": "A bit crowded, but content was top-notch. Looking forward to 2024!",
+    "date": "2023-07-11"
+  },
+  {
+    "id": "review_r006",
+    "event_id": "event_e007",
+    "event": "BUET Engineering Day",
+    "reviewer_name": "Khaled Mahmud",
+    "rating": 4.9,
+    "comment": "Very technical and informative. BUET engineers explained everything clearly.",
+    "date": "2024-06-26"
+  },
+  {
+    "id": "review_r007",
+    "event_id": "event_e008",
+    "event": "Startup Dhaka Connect",
+    "reviewer_name": "Farzana Noor",
+    "rating": 4.3,
+    "comment": "Good insights into the startup ecosystem. Impressive panelists.",
+    "date": "2024-10-06"
+  },
+  {
+    "id": "review_r008",
+    "event_id": "event_e009",
+    "event": "Higher Study Fair 2024",
+    "reviewer_name": "Hasan Zaman",
+    "rating": 4.6,
+    "comment": "Very helpful for students. Learned a lot about scholarships and universities.",
+    "date": "2024-08-31"
+  },
+  {
+    "id": "review_r009",
+    "event_id": "event_e010",
+    "event": "ICT Olympiad 2024",
+    "reviewer_name": "Mehzabin Islam",
+    "rating": 5.0,
+    "comment": "ICT Olympiad was a fantastic experience. Great platform for students.",
+    "date": "2024-12-02"
+  }
+]

@@ -49,6 +49,7 @@ const router = createBrowserRouter([
     {
       index:true,
       element:<Home></Home>,
+      loader: () => fetch("../review.json"),
     },
     {
       path:"/profile",
