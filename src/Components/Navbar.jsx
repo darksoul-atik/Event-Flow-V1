@@ -11,8 +11,8 @@ const Navbar = () => {
   );
 
   return (
-    <div className="w-full bg-cwhite">
-      <div className="navbar bg-cwhite mx-auto max-w-screen-2xl ">
+    <div className="w-full bg-corange">
+      <div className="navbar  px-0 bg-corange mx-auto max-w-screen-2xl ">
         <div className="navbar-start">
           <div className="dropdown">
             <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -35,14 +35,14 @@ const Navbar = () => {
             {/* Mobile Navbar */}
             <ul
               tabIndex={0}
-              className="menu menu-sm dropdown-content rounded-box z-1 mt-3 w-52 p-2 shadow"
+              className="menu menu-sm dropdown-content bg-base-100 rounded-box -ml-3 z-1 mt-3 w-52 p-2 shadow"
             >
               {links}
             </ul>
           </div>
-          <a className="btn btn-ghost text-xl">
-            <span className="text-cdark">Event</span>
-            <span className="text-corange -ml-1">FLOW</span>
+          <a className="btn pl-0 btn-ghost text-xl">
+            <span className="text-cdark max-sm:text-lg">Event</span>
+            <span className="text-cwhite max-sm:text-lg -ml-1">FLOW</span>
           </a>
         </div>
         <div className="navbar-center hidden lg:flex">
@@ -52,7 +52,7 @@ const Navbar = () => {
 
         {/* Login /Registratation Button */}
         <div className="navbar-end">
-          <a className="btn bg-corange">Sign Up</a>
+          <a className="btn max-sm:text-xs bg-cwhite">Sign Up</a>
         </div>
       </div>
     </div>
