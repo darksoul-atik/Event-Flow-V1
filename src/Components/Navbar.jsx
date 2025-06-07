@@ -1,5 +1,7 @@
 import React from "react";
 import { NavLink } from "react-router";
+import { SiEventstore } from "react-icons/si";
+
 
 const Navbar = () => {
   const links = (
@@ -41,7 +43,7 @@ const Navbar = () => {
             </ul>
           </div>
           <a className="btn pl-0 hover:scale-110 hover:border-none btn-ghost text-xl hover:bg-transparent hover:text-inherit hover:shadow-none transition-none">
-
+            <span><SiEventstore size={24} /></span>
             <span className="text-cdark max-sm:text-lg">Event</span>
             <span className="text-cwhite max-sm:text-lg -ml-1">FLOW</span>
           </a>

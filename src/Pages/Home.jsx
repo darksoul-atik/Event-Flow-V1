@@ -7,6 +7,7 @@ import { useLoaderData } from "react-router";
 import ReviewCard from "../Components/ReviewCard";
 import Marquee from "react-fast-marquee";
 import Counter from "../Components/Counter";
+import { Helmet } from 'react-helmet';
 
 const Home = () => {
   const { events } = useContext(EventContext);
@@ -14,6 +15,9 @@ const Home = () => {
 
   return (
     <div className="">
+      <Helmet>
+        <title>EventFLOW | Home</title>
+      </Helmet>
       {/* Slider Container */}
       <div>
         <Slider></Slider>
