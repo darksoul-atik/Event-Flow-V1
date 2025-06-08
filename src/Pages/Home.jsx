@@ -7,7 +7,9 @@ import { useLoaderData } from "react-router";
 import ReviewCard from "../Components/ReviewCard";
 import Marquee from "react-fast-marquee";
 import Counter from "../Components/Counter";
-import { Helmet } from 'react-helmet';
+import { Helmet } from "react-helmet";
+// eslint-disable-next-line no-unused-vars
+import { motion } from "framer-motion";
 
 const Home = () => {
   const { events } = useContext(EventContext);
@@ -30,16 +32,26 @@ const Home = () => {
       <div>
         <LogoMarquee></LogoMarquee>
       </div>
-
-      {/* Event Card */}
-      <h1 className="text-left text-4xl text-cwhite mt-40 mb-10 max-sm:text-2xl max-sm:text-center">
-        Upcoming Events
-      </h1>
-      <div className="lg:grid grid grid-cols-1 lg:grid-cols-2 md:grid md:grid-cols-1 gap-10 mb-40 max-sm:px-2">
-        {events.map((event) => (
-          <EventCard key={event.id} event={event}></EventCard>
-        ))}
-      </div>
+     {/* FramerMotion Controlling Div */}
+      <motion.div
+        initial={{ opacity: 0, y: 40 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{
+          duration: 2.3,
+          ease: "easeInOut",
+        }}
+        viewport={{ once: true, amount: 0.2 }}
+      >
+        {/* Event Card */}
+        <h1 className="text-left text-4xl text-cwhite mt-40 mb-10 max-sm:text-2xl md:text-center max-sm:text-center">
+          Upcoming Events
+        </h1>
+        <div className="lg:grid grid grid-cols-1 lg:grid-cols-2 md:grid md:grid-cols-1 md:px-5  gap-10 mb-40 max-sm:px-2">
+          {events.map((event) => (
+            <EventCard key={event.id} event={event}></EventCard>
+          ))}
+        </div>
+      </motion.div>
 
       {/* Review Card */}
       <div className="mb-40">
@@ -59,8 +71,6 @@ const Home = () => {
       <div>
         <Counter></Counter>
       </div>
-
-  
     </div>
   );
 };

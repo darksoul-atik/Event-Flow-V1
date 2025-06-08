@@ -3,6 +3,9 @@ import MainLayout from "../Layouts/MainLayout";
 import Profile from "../Pages/Profile";
 import Extrapage from "../Pages/extrapage";
 import Home from "../Pages/Home";
+import Error404Page from "../Pages/Error404Page";
+import Login from "../Pages/Login";
+import Register from "../Pages/Register";
 
 const router = createBrowserRouter([
 // {
@@ -60,7 +63,19 @@ const router = createBrowserRouter([
       element:<Extrapage></Extrapage>,
     },
   ]
-}
+},
+{
+  path:"/*",
+  element: <Error404Page></Error404Page>
+},
+{
+  path:"/login",
+  element: <Login></Login>,
+},
+{
+  path:"/register",
+  element: <Register></Register>,
+},
 
 ]);
 

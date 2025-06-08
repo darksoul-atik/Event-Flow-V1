@@ -1,5 +1,5 @@
 import React from "react";
-import { NavLink } from "react-router";
+import { Link, NavLink } from "react-router";
 import { SiEventstore } from "react-icons/si";
 
 
@@ -55,7 +55,7 @@ const Navbar = () => {
 
         {/* Login /Registratation Button */}
         <div className="navbar-end">
-          <a className="btn max-sm:text-xs bg-cwhite">Sign Up</a>
+          <Link to="/login" className="btn max-sm:text-xs bg-cwhite">Log in</Link>
         </div>
       </div>
     </div>
