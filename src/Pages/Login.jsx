@@ -1,20 +1,43 @@
-import React from "react";
+import React, { useContext, useState } from "react";
 // eslint-disable-next-line no-unused-vars
 import { motion } from "framer-motion";
-import { Link } from "react-router";
+import { Link, useLocation, useNavigate } from "react-router";
+import { Helmet } from "react-helmet";
+import AuthContext from "../Contexts/AuthContexts";
 
 const Login = () => {
+  const { signIn,googleLogin } = useContext(AuthContext);
+  const [error, setError] = useState("");
+  const location = useLocation();
+  const navigate = useNavigate();
+
+  const handleLogin = (e) => {
+    e.preventDefault();
+    const form = e.target;
+    const email = form.email.value;
+    const password = form.password.value;
+    signIn(email, password)
+      .then((result) => {
+        const _user = result.user;
+        navigate(`${location.state ? location.state : "/"}`);
+      })
+      .catch((error) => {
+        const errorCode = error.code;
+        setError(errorCode);
+      });
+  };
+
+  const handleGoogleLogin = () => {
+    googleLogin();
+  };
+
   return (
     <div className="bg-gradient-to-br from-corange via-cwhite to-cdark overflow-hidden">
-      <motion.div
-        initial={{ opacity: 0, y: 40 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{
-          duration: 0.8,
-          ease: "easeInOut",
-        }}
-        viewport={{ once: true, amount: 0.2 }}
-      >
+      <Helmet>
+        <title>Login</title>
+      </Helmet>
+
+    
         <div className="min-h-screen flex flex-col items-center justify-center bg-gradient-to-br from-corange via-cwhite to-cdark ">
           <div className="bg-white/10 py-20 lg:w-3/7  flex flex-col justify-center items-center backdrop-blur-md border border-white/20 md:w-full rounded-xl max-sm:w-full  p-6 shadow-lg">
             <h1 className=" text-cdark font-semibold pb-5 mb-5 lg:text-xl">
@@ -22,51 +45,43 @@ const Login = () => {
             </h1>
             <div className="card py-6 bg-cdark w-full max-w-sm shrink-0 shadow-2xl">
               <div className="card-body">
-                <fieldset className="fieldset">
+                <form onSubmit={handleLogin} className="fieldset">
                   <label className="label text-corange">Email</label>
                   <input
                     type="email"
                     className="input bg-cwhite "
                     placeholder="Email"
+                    name="email"
                   />
                   <label className="label  text-corange">Password</label>
                   <input
                     type="password"
                     className="input bg-cwhite  "
                     placeholder="Password"
+                    name="password"
                   />
 
                   {/* Forget Password  */}
                   <div>
-                    <button
-                      className="text-corange cursor-pointer hover:underline"
-                      onClick={() =>
-                        document.getElementById("my_modal_1").showModal()
-                      }
+                    <p
+                      onClick={() => {
+                        alert("This functionality will be added soon");
+                      }}
+                      className="text-corange cursor-pointer"
                     >
-                      Forget Password
-                    </button>
-                    <dialog id="my_modal_1" className="modal">
-                      <div className="modal-box">
-                        <h3 className="font-bold text-lg">
-                          You should not supposed to click that!
-                        </h3>
-                        <p className="py-4 text-base">
-                          This functionality will be added soon.
-                        </p>
-                        <div className="modal-action">
-                          <form method="dialog">
-                            <button className="btn">Close</button>
-                          </form>
-                        </div>
-                      </div>
-                    </dialog>
+                      Forget Password?
+                    </p>
                   </div>
+                  {error && <p className="text-red-400 text-xs"> Invalid Email or The account does not exist</p> }
 
                   <button className="btn max-sm:btn-sm  text-corange btn-neutral mt-4">
                     Login
                   </button>
-                  <button className="btn max-sm:btn-sm mt-2 bg-white text-black border-[#e5e5e5]">
+
+                  <button onClick={handleGoogleLogin}
+                
+                    className="btn max-sm:btn-sm mt-2 bg-white text-black border-[#e5e5e5]"
+                  >
                     <svg
                       aria-label="Google logo"
                       width="16"
@@ -96,7 +111,9 @@ const Login = () => {
                     </svg>
                     Login with Google
                   </button>
-                </fieldset>
+
+                </form>
+
                 <span className="mr-2 text-center text-cwhite">
                   New to this website?{" "}
                   <Link
@@ -119,7 +136,7 @@ const Login = () => {
             </div>
           </div>
         </div>
-      </motion.div>
+     
     </div>
   );
 };

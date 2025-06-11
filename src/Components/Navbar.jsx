@@ -1,9 +1,10 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link, NavLink } from "react-router";
 import { SiEventstore } from "react-icons/si";
-
+import AuthContext from "../Contexts/AuthContexts";
 
 const Navbar = () => {
+  const { user } = useContext(AuthContext);
   const links = (
     <>
       <NavLink to="/">Home</NavLink>
@@ -43,19 +44,31 @@ const Navbar = () => {
             </ul>
           </div>
           <a className="btn pl-0 hover:scale-110 hover:border-none btn-ghost text-xl hover:bg-transparent hover:text-inherit hover:shadow-none transition-none">
-            <span><SiEventstore size={24} /></span>
+            <span>
+              <SiEventstore size={24} />
+            </span>
             <span className="text-cdark max-sm:text-lg">Event</span>
             <span className="text-cwhite max-sm:text-lg -ml-1">FLOW</span>
           </a>
         </div>
         <div className="navbar-center hidden lg:flex">
           {/* Desktop Navbar */}
-          <ul className="menu space-x-10 font-medium text-dark  menu-horizontal px-5">{links}</ul>
+          <ul className="menu space-x-10 font-medium text-dark  menu-horizontal px-5">
+            {links}
+          </ul>
         </div>
 
         {/* Login /Registratation Button */}
-        <div className="navbar-end">
-          <Link to="/login" className="btn max-sm:text-xs bg-cwhite">Log in</Link>
+
+        <div className="navbar-end flex gap-5">
+          {/* User */}
+          <div>{user && <p>{user?.displayName}</p>}</div>
+
+          <div className="">
+            <Link to="/login" className="btn max-sm:text-xs bg-cwhite">
+              Log in
+            </Link>
+          </div>
         </div>
       </div>
     </div>

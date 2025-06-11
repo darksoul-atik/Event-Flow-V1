@@ -1,44 +1,133 @@
-import React from "react";
+import React, { useContext, useState } from "react";
 // eslint-disable-next-line no-unused-vars
 import { motion } from "framer-motion";
-import { Link } from "react-router";
+import { Link, useNavigate } from "react-router";
+import { Helmet } from 'react-helmet';
+import AuthContext from "../Contexts/AuthContexts";
 
 const Register = () => {
+
+const {createUser ,updateUser ,setUser} = useContext(AuthContext)
+const[error,setError] =useState("");
+const navigate = useNavigate();
+
+
+
+ const handleRegister = (e) => {
+   e.preventDefault();
+
+   const form = e.target;
+   const name = form.name.value;
+   const photoURL = form.photoURL.value;
+   const email = form.email.value;
+   const password = form.password.value;
+   console.log(name,photoURL,email,password);
+   
+    if (password.length < 6) {
+    setError("Password should be at least 6 characters long");
+    return;
+  }
+
+  if (!/[A-Z]/.test(password)) {
+    setError("Password must contain at least one uppercase letter");
+    return;
+  }
+
+  if (!/[a-z]/.test(password)) {
+    setError("Password must contain at least one lowercase letter");
+    return;
+  }
+  else{
+    setError(" ");
+    createUser(email,password)
+      .then((result) => {
+        const user = result.user;
+        updateUser({displayName: name ,photoURL : photoURL})
+        .then(() => {
+          setUser({...user,displayName: name ,photoURL : photoURL});
+          navigate("/");
+        })
+        .catch((error) => {
+          setUser(user);
+          navigate("/");
+          console.log("Error while signing up user",error);
+        })
+      })
+      .catch((error) => {
+        const errorCode = error.code;
+        const errorMessage = error.message;
+        alert(errorMessage, errorCode);
+      });
+  }
+
+ }
+
+
+
+
   return (
     <div className="bg-gradient-to-br from-corange via-cwhite to-cdark overflow-hidden">
-      <motion.div
-        initial={{ opacity: 0, y: 40 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{
-          duration: 0.8,
-          ease: "easeInOut",
-        }}
-        viewport={{ once: true, amount: 0.2 }}
-      >
+        <Helmet>
+             <title>Sign Up</title>
+           </Helmet>
+
         <div className="min-h-screen flex flex-col items-center justify-center bg-gradient-to-br from-corange via-cwhite to-cdark ">
           <div className="bg-white/10 py-20 lg:w-3/7  flex flex-col justify-center items-center backdrop-blur-md border border-white/20 md:w-full rounded-xl max-sm:w-full  p-6 shadow-lg">
             <h1 className=" text-cdark font-semibold pb-5 mb-5 lg:text-xl">
               Sign Up
             </h1>
+
+            {/* Form Container */}
             <div className="card py-6 bg-cdark w-full max-w-sm shrink-0 shadow-2xl">
               <div className="card-body">
-                <fieldset className="fieldset">
+
+                {/* Form  */}
+                <form onSubmit={handleRegister} className="fieldset">
+
+                  {/* Name */}
+                  <label className="label text-corange">Name</label>
+                  <input
+                    type="text"
+                    className="input bg-cwhite "
+                    placeholder="Name"
+                    name="name"
+                    required
+                  />
+                    {/* Photo URL */}
+                  <label className="label text-corange">Photo URL</label>
+                  <input
+                    type="text"
+                    className="input bg-cwhite "
+                    placeholder="PhotoURL"
+                    name="photoURL"
+
+                  />
+                   {/* Email */}
                   <label className="label text-corange">Email</label>
                   <input
                     type="email"
                     className="input bg-cwhite "
                     placeholder="Email"
+                    name="email"
+                    required
                   />
+
+                    {/* Passowrd */}
                   <label className="label  text-corange">Password</label>
                   <input
                     type="password"
                     className="input bg-cwhite  "
                     placeholder="Password"
+                    name="password"
+                    required
                   />
+                  <p>{error && <span className="text-cred text-sm">{error}</span>}</p>
 
+                    {/* Register Button */}
                   <button className="btn max-sm:btn-sm  text-corange btn-neutral mt-4">
                     Register
                   </button>
+
                   <button className="btn max-sm:btn-sm mt-2 bg-white text-black border-[#e5e5e5]">
                     <svg
                       aria-label="Google logo"
@@ -69,7 +158,7 @@ const Register = () => {
                     </svg>
                     Login with Google
                   </button>
-                </fieldset>
+                </form>
                 <span className="mr-2 text-center text-cwhite">
                   Already have an account{" "}
                   <Link
@@ -92,7 +181,7 @@ const Register = () => {
             </div>
           </div>
         </div>
-      </motion.div>
+      
     </div>
   );
 };
