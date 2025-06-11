@@ -4,7 +4,11 @@ import { SiEventstore } from "react-icons/si";
 import AuthContext from "../Contexts/AuthContexts";
 
 const Navbar = () => {
-  const { user } = useContext(AuthContext);
+  const { user, logOut } = useContext(AuthContext);
+
+  const handleLogOut = () => {
+    logOut();
+  };
   const links = (
     <>
       <NavLink to="/">Home</NavLink>
@@ -16,6 +20,7 @@ const Navbar = () => {
   return (
     <div className="w-full bg-corange">
       <div className="navbar  px-0 bg-corange mx-auto max-w-screen-2xl ">
+        {/* Logo of Website */}
         <div className="navbar-start">
           <div className="dropdown">
             <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -51,6 +56,8 @@ const Navbar = () => {
             <span className="text-cwhite max-sm:text-lg -ml-1">FLOW</span>
           </a>
         </div>
+
+        {/* NavLinks */}
         <div className="navbar-center hidden lg:flex">
           {/* Desktop Navbar */}
           <ul className="menu space-x-10 font-medium text-dark  menu-horizontal px-5">
@@ -60,15 +67,40 @@ const Navbar = () => {
 
         {/* Login /Registratation Button */}
 
-        <div className="navbar-end flex gap-5">
+        <div className="navbar-end flex max-sm:mr-4">
           {/* User */}
-          <div>{user && <p>{user?.displayName}</p>}</div>
 
-          <div className="">
-            <Link to="/login" className="btn max-sm:text-xs bg-cwhite">
-              Log in
-            </Link>
+          <div className="relative group">
+            {user && (
+              <>
+                <img
+                  className="rounded-full w-10 hover:border-cwhite border-cdark mr-5 border-3 cursor-pointer"
+                  src={user.photoURL}
+                  alt="Profile"
+                />
+                <div className="absolute p-1 right-16 hidden opacity-80 bottom-2 group-hover:block bg-cdark text-cwhite text-xs rounded whitespace-nowrap z-10 shadow-lg">
+                  {user.displayName}
+                </div>
+              </>
+            )}
           </div>
+
+          {user ? (
+            <div className="">
+              <button
+                onClick={handleLogOut}
+                className="btn max-sm:text-xs bg-cwhite"
+              >
+                Log Out
+              </button>
+            </div>
+          ) : (
+            <div className="">
+              <Link to="/login" className="btn max-sm:text-xs bg-cwhite">
+                Log in
+              </Link>
+            </div>
+          )}
         </div>
       </div>
     </div>

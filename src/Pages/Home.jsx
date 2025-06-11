@@ -32,7 +32,7 @@ const Home = () => {
       <div>
         <LogoMarquee></LogoMarquee>
       </div>
-     {/* FramerMotion Controlling Div */}
+      {/* FramerMotion Controlling Div */}
       <motion.div
         initial={{ opacity: 0, y: 40 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -40,7 +40,7 @@ const Home = () => {
           duration: 2.3,
           ease: "easeInOut",
         }}
-        viewport={{ once: true, amount: 0.2 }}
+        viewport={{ once: true, amount: 0.05 }}
       >
         {/* Event Card */}
         <h1 className="text-left text-4xl text-cwhite mt-40 mb-10 max-sm:text-2xl md:text-center max-sm:text-center">
