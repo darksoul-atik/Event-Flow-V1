@@ -1,8 +1,9 @@
 import React from "react";
+import { Link } from "react-router";
 
 const EventCard = ({ event }) => {
   const {
-    _id,
+    id,
     name,
     thumbnail,
     category,
@@ -30,7 +31,7 @@ const EventCard = ({ event }) => {
           <p className="font-bold">Entry Fee: {entry_fee!==0 ? entry_fee + " BDT" : "Free"}</p>
           <div className=" md:badge-sm badge badge-outline badge-error">{category}</div>
           <div className="card-actions justify-end">
-            <button className="btn btn-sm bg-corange ">View Details</button>
+            <Link to={`/event/${id}`} className="btn btn-sm bg-corange ">View Details</Link>
           </div>
         </div>
 

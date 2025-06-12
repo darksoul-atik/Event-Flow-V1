@@ -6,6 +6,7 @@ import Home from "../Pages/Home";
 import Error404Page from "../Pages/Error404Page";
 import Login from "../Pages/Login";
 import Register from "../Pages/Register";
+import EventDetails from "../Pages/EventDetails";
 
 const router = createBrowserRouter([
 // {
@@ -53,6 +54,11 @@ const router = createBrowserRouter([
       index:true,
       element:<Home></Home>,
       loader: () => fetch("../review.json"),
+      hydrateFallbackElement:<p>Loading...</p>,
+    },
+      {
+      path:"/event/:id",
+      element:<EventDetails></EventDetails>,
     },
     {
       path:"/profile",

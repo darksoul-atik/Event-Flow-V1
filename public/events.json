@@ -7,7 +7,21 @@
     "date": "2024-09-20",
     "location": "East West University, Dhaka",
     "entry_fee": 0,
-    "description": "A national-level robotics competition promoting innovation, engineering, and student collaboration in automation and tech."
+    "description": "A national-level robotics competition promoting innovation, engineering, and student collaboration in automation and tech.",
+    "organizer": "EWU Robotics Club",
+    "contact_email": "robofest@ewu.edu.bd",
+    "contact_phone": "+880123456789",
+    "registration_link": "https://ewu.edu.bd/robofest2024/register",
+    "is_online": false,
+    "capacity": 300,
+    "tags": ["robotics", "automation", "engineering", "competition"],
+    "sponsors": ["TechVision", "Robi Axiata", "Walton Robotics"],
+    "schedule": [
+      { "time": "09:00 AM", "activity": "Registration & Welcome Speech" },
+      { "time": "10:00 AM", "activity": "Line Follower Competition" },
+      { "time": "01:00 PM", "activity": "Obstacle Avoidance Bot Challenge" },
+      { "time": "03:30 PM", "activity": "Prize Giving Ceremony" }
+    ]
   },
   {
     "id": "event_e003",
@@ -17,7 +31,21 @@
     "date": "2024-11-10",
     "location": "East West University, Dhaka",
     "entry_fee": 100,
-    "description": "A special session featuring Jhankar Mahbub, diving deep into web development, AI, and career building in tech."
+    "description": "A special session featuring Jhankar Mahbub, diving deep into web development, AI, and career building in tech.",
+    "organizer": "Programming Hero",
+    "contact_email": "events@programming-hero.com",
+    "contact_phone": "+8801778900001",
+    "registration_link": "https://programming-hero.com/jhankar-session",
+    "is_online": true,
+    "capacity": 500,
+    "tags": ["web", "AI", "education", "career"],
+    "sponsors": ["Programming Hero", "DataBird", "CodeNext"],
+    "schedule": [
+      { "time": "10:00 AM", "activity": "Opening Speech & Icebreaker" },
+      { "time": "11:00 AM", "activity": "Web Programming Basics" },
+      { "time": "01:30 PM", "activity": "AI and Machine Learning Insights" },
+      { "time": "03:00 PM", "activity": "Q&A with Jhankar Mahbub" }
+    ]
   },
   {
     "id": "event_e004",
@@ -27,7 +55,20 @@
     "date": "2024-08-05",
     "location": "Bangabandhu Arena, Dhaka",
     "entry_fee": 200,
-    "description": "A dynamic musical showdown sponsored by Pubali Bank, showcasing emerging and popular bands of the country."
+    "description": "A dynamic musical showdown sponsored by Pubali Bank, showcasing emerging and popular bands of the country.",
+    "organizer": "TuneBeat Events",
+    "contact_email": "musicfest@tunebeat.com",
+    "contact_phone": "+8801788994455",
+    "registration_link": "https://tunebeat.com/breakingband",
+    "is_online": false,
+    "capacity": 1000,
+    "tags": ["music", "band", "live", "concert"],
+    "sponsors": ["Pubali Bank", "Coca-Cola", "Yamaha"],
+    "schedule": [
+      { "time": "05:00 PM", "activity": "Opening Performance" },
+      { "time": "06:30 PM", "activity": "Band Battle Round 1" },
+      { "time": "08:00 PM", "activity": "Headliner Act" }
+    ]
   },
   {
     "id": "event_e005",
@@ -37,7 +78,20 @@
     "date": "2024-07-15",
     "location": "Hotel Sonargaon, Dhaka",
     "entry_fee": 500,
-    "description": "An immersive event featuring the latest in AI computing technologies and innovations, sponsored by Gigabyte."
+    "description": "An immersive event featuring the latest in AI computing technologies and innovations, sponsored by Gigabyte.",
+    "organizer": "Gigabyte Bangladesh",
+    "contact_email": "ai@gigabytebd.com",
+    "contact_phone": "+8801999882233",
+    "registration_link": "https://gigabytebd.com/ai-computing-2024",
+    "is_online": false,
+    "capacity": 400,
+    "tags": ["AI", "hardware", "tech", "GPU"],
+    "sponsors": ["Gigabyte", "NVIDIA", "Techland BD"],
+    "schedule": [
+      { "time": "09:30 AM", "activity": "Registration & Networking" },
+      { "time": "11:00 AM", "activity": "AI Workstation Demos" },
+      { "time": "02:00 PM", "activity": "Panel Discussion with Industry Experts" }
+    ]
   },
   {
     "id": "event_e006",
@@ -47,7 +101,20 @@
     "date": "2023-07-10",
     "location": "Radisson Blu Dhaka",
     "entry_fee": 500,
-    "description": "Revisit the success of 2023’s biggest AI technology event that brought together engineers, developers, and tech enthusiasts."
+    "description": "Revisit the success of 2023’s biggest AI technology event that brought together engineers, developers, and tech enthusiasts.",
+    "organizer": "Gigabyte",
+    "contact_email": "support@gigabytebd.com",
+    "contact_phone": "+8801955677788",
+    "registration_link": "https://gigabytebd.com/ai2023-recap",
+    "is_online": false,
+    "capacity": 350,
+    "tags": ["AI", "cloud", "innovation", "recap"],
+    "sponsors": ["Gigabyte", "Intel", "DeshiTech"],
+    "schedule": [
+      { "time": "10:00 AM", "activity": "Keynote Speech" },
+      { "time": "12:00 PM", "activity": "Showcase of AI Devices" },
+      { "time": "03:00 PM", "activity": "Panel Talk" }
+    ]
   },
   {
     "id": "event_e007",
@@ -57,7 +124,20 @@
     "date": "2024-06-25",
     "location": "BUET Auditorium, Dhaka",
     "entry_fee": 200,
-    "description": "A technical seminar and hands-on session on boiler operation and industrial safety by BUET engineering department."
+    "description": "A technical seminar and hands-on session on boiler operation and industrial safety by BUET engineering department.",
+    "organizer": "BUET Mechanical Society",
+    "contact_email": "boiler@buet.ac.bd",
+    "contact_phone": "+8801740000000",
+    "registration_link": "https://buet.ac.bd/events/boiler-op",
+    "is_online": false,
+    "capacity": 150,
+    "tags": ["engineering", "safety", "industrial", "boiler"],
+    "sponsors": ["Rahim Steel", "IDCOL", "BUET Alumni Association"],
+    "schedule": [
+      { "time": "08:30 AM", "activity": "Introduction & Registration" },
+      { "time": "10:00 AM", "activity": "Safety Briefing" },
+      { "time": "01:00 PM", "activity": "Live Boiler Demo" }
+    ]
   },
   {
     "id": "event_e008",
@@ -67,7 +147,20 @@
     "date": "2024-10-05",
     "location": "Startup Bangladesh HQ, Dhaka",
     "entry_fee": 0,
-    "description": "A presentation and panel discussion highlighting the latest startup investment trends and insights in Bangladesh."
+    "description": "A presentation and panel discussion highlighting the latest startup investment trends and insights in Bangladesh.",
+    "organizer": "Startup Bangladesh",
+    "contact_email": "info@startupbd.gov.bd",
+    "contact_phone": "+8801999881001",
+    "registration_link": "https://startupbangladesh.gov.bd/report2024",
+    "is_online": true,
+    "capacity": 600,
+    "tags": ["startups", "funding", "investment", "entrepreneurship"],
+    "sponsors": ["Startup Bangladesh", "BD Venture", "LightCastle Partners"],
+    "schedule": [
+      { "time": "10:00 AM", "activity": "Report Launch" },
+      { "time": "11:30 AM", "activity": "Panel Discussion" },
+      { "time": "01:00 PM", "activity": "Networking Session" }
+    ]
   },
   {
     "id": "event_e009",
@@ -77,7 +170,20 @@
     "date": "2024-08-30",
     "location": "Pan Pacific Sonargaon Hotel, Dhaka",
     "entry_fee": 0,
-    "description": "Explore study opportunities in Australia with university reps, scholarship guidance, and visa consultations."
+    "description": "Explore study opportunities in Australia with university reps, scholarship guidance, and visa consultations.",
+    "organizer": "IDP Education Bangladesh",
+    "contact_email": "expo@idp.com",
+    "contact_phone": "+8801712345678",
+    "registration_link": "https://idp.com/australiaexpo",
+    "is_online": false,
+    "capacity": 1000,
+    "tags": ["study abroad", "scholarship", "visa", "education"],
+    "sponsors": ["IDP", "University of Sydney", "Griffith University"],
+    "schedule": [
+      { "time": "09:00 AM", "activity": "Expo Opening & University Booths" },
+      { "time": "11:00 AM", "activity": "Scholarship Info Session" },
+      { "time": "02:00 PM", "activity": "Visa Application Workshop" }
+    ]
   },
   {
     "id": "event_e010",
@@ -87,6 +193,19 @@
     "date": "2024-12-01",
     "location": "BICC, Dhaka",
     "entry_fee": 300,
-    "description": "A nationwide ICT competition for students, promoting coding, logical thinking, and technological problem-solving."
+    "description": "A nationwide ICT competition for students, promoting coding, logical thinking, and technological problem-solving.",
+    "organizer": "ICT Division Bangladesh",
+    "contact_email": "ictolympiad@ict.gov.bd",
+    "contact_phone": "+8801555555555",
+    "registration_link": "https://ictdivision.gov.bd/olympiad2024",
+    "is_online": false,
+    "capacity": 800,
+    "tags": ["ICT", "competition", "students", "coding"],
+    "sponsors": ["ICT Division", "Grameenphone", "Samsung Bangladesh"],
+    "schedule": [
+      { "time": "09:00 AM", "activity": "Opening Ceremony" },
+      { "time": "10:30 AM", "activity": "Preliminary Rounds" },
+      { "time": "02:00 PM", "activity": "Final Round & Awards" }
+    ]
   }
 ]
