@@ -87,7 +87,7 @@ const Navbar = () => {
                 <div className="w-10 mr-5">
                   <img
                     className="rounded-full w-full  hover:border-cwhite border-cdark border-3 cursor-pointer"
-                    src={user.photoURL || <FaUserAlt />}
+                    src={user?.photoURL}
                     alt="Profile"
                   />
                 </div>

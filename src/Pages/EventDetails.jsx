@@ -2,6 +2,7 @@ import React, { useContext } from "react";
 import { EventContext } from "../Contexts/EventsContext";
 import { useParams } from "react-router";
 import Error404Page from "./Error404Page";
+import { toast, ToastContainer } from "react-toastify";
 import {
   FaMapMarkerAlt,
   FaCalendarAlt,
@@ -21,6 +22,27 @@ const EventDetails = () => {
   const { id } = useParams();
 
   const event = events.find((e) => e.id === id);
+
+  const handleReserve = (e) => {
+    e.preventDefault();
+    const name = e.target.name.value;
+    toast(
+      <span>
+         Reservation confirmed for <span className="font-bold text-[#f99e72]">{name}</span>.
+      </span>,
+      {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: false,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "dark",
+      }
+    );
+  e.target.reset();
+  };
 
   if (!event) {
     return (
@@ -108,17 +130,6 @@ const EventDetails = () => {
                 {event.contact_phone}
               </a>
             </p>
-            <p className="flex items-center gap-2">
-              <FaGlobe /> <strong>Registration:</strong>{" "}
-              <a
-                className="text-blue-400 underline"
-                href={event.registration_link}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Register Here
-              </a>
-            </p>
           </div>
 
           {/* Sponsors */}
@@ -151,6 +162,50 @@ const EventDetails = () => {
               </ul>
             </div>
           )}
+          <div>
+            <div className="border border-dashed my-10 "></div>
+            <p className="flex items-center gap-2">
+              <FaGlobe /> <strong>Registration:</strong>{" "}
+            </p>
+
+            <form
+              onSubmit={handleReserve}
+              className="fieldset  w-1/5  flex flex-col items-start"
+            >
+              <label className="label text-corange">Name</label>
+              <input
+                type="text"
+                className="input text-cdark placeholder-corange bg-cwhite "
+                placeholder="Enter your name"
+                name="name"
+              />
+              <label className="label  text-corange">Email</label>
+              <input
+                type="email"
+                className="input text-cdark placeholder-corange bg-cwhite "
+                placeholder="Enter your email"
+                name="email"
+              />
+              <button className="btn  max-sm:btn-sm  text-corange btn-neutral mt-4">
+                Reserve Seat
+              </button>
+              <ToastContainer
+                position="top-right"
+                autoClose={5000}
+                hideProgressBar={false}
+                newestOnTop={false}
+                closeOnClick={false}
+                rtl={false}
+                pauseOnFocusLoss={true}
+                draggable={true}
+                pauseOnHover={true}
+                theme="dark"
+                toastClassName="bg-[#1e2835] text-[#f5eddf] border border-[#f99e72] rounded-lg shadow-md"
+                bodyClassName="text-sm font-medium flex items-center"
+                progressClassName="bg-[#f99e72]"
+              />
+            </form>
+          </div>
         </div>
       </div>
     </div>
