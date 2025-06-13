@@ -1,5 +1,6 @@
 import React from "react";
-import { useParams, useLoaderData, useNavigate } from "react-router";
+import { useParams, useLoaderData, useNavigate,Link } from "react-router";
+import { AlertTriangle } from "lucide-react";
 
 const BlogDetails = () => {
   const { id } = useParams();
@@ -9,7 +10,26 @@ const BlogDetails = () => {
   const selectedBlog = blogs.find((blog) => blog.id === parseInt(id));
 
   if (!selectedBlog) {
-    return <div className="text-center py-10 text-cdark">Blog not found.</div>;
+    return (
+      <div className="min-h-screen flex flex-col justify-center items-center bg-cdark text-cwhite px-6 text-center">
+        <div className="max-w-md">
+          <AlertTriangle size={60} className="text-corange mb-6 mx-auto" />
+          <h1 className="text-4xl font-bold mb-4 text-corange">
+            Blog Not Found
+          </h1>
+          <p className="text-base md:text-lg text-cwhite/80 mb-6">
+            Oops! The blog you’re looking for doesn’t exist or may have been
+            removed. Try browsing other stories or head back to the homepage.
+          </p>
+          <Link
+            to="/blogs"
+            className="inline-block bg-corange text-cwhite px-6 py-3 rounded-full text-sm font-semibold hover:bg-opacity-90 transition"
+          >
+            Explore More Blogs
+          </Link>
+        </div>
+      </div>
+    );
   }
 
   const { title, author, date, image, content, tags } = selectedBlog;

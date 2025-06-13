@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import { EventContext } from "../Contexts/EventsContext";
 import { useParams } from "react-router";
 import Error404Page from "./Error404Page";
@@ -20,8 +20,11 @@ import {
 const EventDetails = () => {
   const { events } = useContext(EventContext);
   const { id } = useParams();
-
   const event = events.find((e) => e.id === id);
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   const handleReserve = (e) => {
     e.preventDefault();

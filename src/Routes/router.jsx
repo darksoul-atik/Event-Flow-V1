@@ -10,45 +10,9 @@ import PrivateRoute from "./PrivateRoute";
 import Blogs from "../Pages/Blogs";
 import Loading from "../Components/Loading";
 import BlogDetails from "../Components/BlogDetails";
+import Reservation from "../Pages/Reservation";
 
 const router = createBrowserRouter([
-  // {
-  //     path: "/",
-  //     element: <MainLayout />, // 🧩 Includes Navbar/Footer
-  //     errorElement: <NotFound />, // 404 page
-  //     children: [
-  //       { path: "/", element: <Home /> },
-  //       { path: "/login", element: <Login /> },
-  //       { path: "/register", element: <Register /> },
-  //       { path: "/forget-password", element: <ForgetPassword /> },
-  //       {
-  //         path: "/event/:id",
-  //         element: (
-  //           <PrivateRoute>
-  //             <EventDetails />
-  //           </PrivateRoute>
-  //         ),
-  //       },
-  //       {
-  //         path: "/profile",
-  //         element: (
-  //           <PrivateRoute>
-  //             <Profile />
-  //           </PrivateRoute>
-  //         ),
-  //       },
-  //       {
-  //         path: "/my-bookings", // ✅ Extra route (protected)
-  //         element: (
-  //           <PrivateRoute>
-  //             <MyBookings />
-  //           </PrivateRoute>
-  //         ),
-  //       },
-  //     ],
-
-  // },
-
   {
     path: "/",
     element: <MainLayout></MainLayout>,
@@ -76,21 +40,33 @@ const router = createBrowserRouter([
         ),
       },
       {
+        path: "/Reservation",
+        element: <Reservation></Reservation>,
+      },
+      {
         path: "/blogs",
         loader: () => fetch("../blogs.json"),
-        element: <Blogs></Blogs>,
-        hydrateFallbackElement:<Loading></Loading>
+        element: (
+          <PrivateRoute>
+            <Blogs></Blogs>
+          </PrivateRoute>
+        ),
+        hydrateFallbackElement: <Loading></Loading>,
       },
       {
         path: "/blogs/:id",
-         loader: () => fetch("../blogs.json"),
-        element: <BlogDetails></BlogDetails>,
-        hydrateFallbackElement:<Loading></Loading>
+        loader: () => fetch("../blogs.json"),
+        element: (
+          <PrivateRoute>
+            <BlogDetails></BlogDetails>
+          </PrivateRoute>
+        ),
+        hydrateFallbackElement: <Loading></Loading>,
       },
     ],
   },
   {
-    path: "/*",
+    path: "*",
     element: <Error404Page></Error404Page>,
   },
   {
