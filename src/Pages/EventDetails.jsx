@@ -28,7 +28,8 @@ const EventDetails = () => {
     const name = e.target.name.value;
     toast(
       <span>
-         Reservation confirmed for <span className="font-bold text-[#f99e72]">{name}</span>.
+        Reservation confirmed for{" "}
+        <span className="font-bold text-[#f99e72]">{name}</span>.
       </span>,
       {
         position: "top-right",
@@ -41,7 +42,7 @@ const EventDetails = () => {
         theme: "dark",
       }
     );
-  e.target.reset();
+    e.target.reset();
   };
 
   if (!event) {
@@ -54,13 +55,13 @@ const EventDetails = () => {
 
   return (
     <div className="min-h-screen bg-[#1e2835] text-[#f5eddf] py-10 px-4">
-      <div className="w-full min-h-screen mx-auto bg-[#2a3545] rounded-2xl overflow-hidden shadow-lg">
+      <div className="w-full  min-h-screen mx-auto bg-[#2a3545] rounded-2xl overflow-hidden shadow-lg">
         {/* Thumbnail */}
-        <div className="w-4/5 lg:mt-10 mx-auto py-10 px-10 rounded-2xl border border-white/20 bg-white/10 backdrop-blur-md shadow-lg">
+        <div className="w-4/5 max-sm:h-72 max-sm:w-full max-sm:px-0 max-sm:py-0 lg:mt-10 mx-auto py-10 px-10 rounded-2xl border border-white/20 bg-white/10 backdrop-blur-md shadow-lg">
           <img
             src={event.thumbnail}
             alt={event.name}
-            className="w-full h-full rounded-2xl object-contain"
+            className="w-full h-full   max-sm:object-fill  rounded-2xl object-contain"
           />
         </div>
 
@@ -170,7 +171,7 @@ const EventDetails = () => {
 
             <form
               onSubmit={handleReserve}
-              className="fieldset  w-1/5  flex flex-col items-start"
+              className="fieldset max-sm:w-full md:w-3/5  w-1/5  flex flex-col items-start"
             >
               <label className="label text-corange">Name</label>
               <input

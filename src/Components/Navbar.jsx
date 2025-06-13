@@ -77,16 +77,16 @@ const Navbar = () => {
 
 
       {
-        loading ? (     <div className=" navbar-end  bg-corange text-center text-white">
+        loading ? (     <div className="  navbar-end bg-corange text-center text-white">
     <span className="loading loading-infinity loading-xl"></span>
-      </div>):(  <div className="navbar-end flex max-sm:mr-4">
+      </div>):(  <div className="navbar-end  items-center   flex max-sm:mr-4">
           {/* User */}
           <div className="relative group">
             {!loading && user && (
               <>
-                <div className="w-10 mr-5">
+                <div className="w-9 mr-5 flex flex-col items-center justify-center">
                   <img
-                    className="rounded-full w-full  hover:border-cwhite border-cdark border-3 cursor-pointer"
+                    className="rounded-full w-full h-9 hover:border-cwhite border-cdark border-3 cursor-pointer"
                     src={user?.photoURL}
                     alt="Profile"
                   />
