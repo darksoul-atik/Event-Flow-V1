@@ -1,13 +1,15 @@
 import { createBrowserRouter } from "react-router";
 import MainLayout from "../Layouts/MainLayout";
 import Profile from "../Pages/Profile";
-import Extrapage from "../Pages/extrapage";
 import Home from "../Pages/Home";
 import Error404Page from "../Pages/Error404Page";
 import Login from "../Pages/Login";
 import Register from "../Pages/Register";
 import EventDetails from "../Pages/EventDetails";
 import PrivateRoute from "./PrivateRoute";
+import Blogs from "../Pages/Blogs";
+import Loading from "../Components/Loading";
+import BlogDetails from "../Components/BlogDetails";
 
 const router = createBrowserRouter([
   // {
@@ -74,8 +76,16 @@ const router = createBrowserRouter([
         ),
       },
       {
-        path: "/extra",
-        element: <Extrapage></Extrapage>,
+        path: "/blogs",
+        loader: () => fetch("../blogs.json"),
+        element: <Blogs></Blogs>,
+        hydrateFallbackElement:<Loading></Loading>
+      },
+      {
+        path: "/blogs/:id",
+         loader: () => fetch("../blogs.json"),
+        element: <BlogDetails></BlogDetails>,
+        hydrateFallbackElement:<Loading></Loading>
       },
     ],
   },

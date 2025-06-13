@@ -1,15 +1,34 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 // eslint-disable-next-line no-unused-vars
 import { motion } from "framer-motion";
 import { Link, useLocation, useNavigate } from "react-router";
 import { Helmet } from "react-helmet";
 import AuthContext from "../Contexts/AuthContexts";
+import { toast, ToastContainer } from "react-toastify";
+import { ToastContext } from "../Contexts/ToastContext";
 
 const Login = () => {
-  const { signIn, googleLogin, setUser } = useContext(AuthContext);
+  const { signIn, googleLogin, setUser, user, loading } =
+    useContext(AuthContext);
   const [error, setError] = useState("");
   const location = useLocation();
   const navigate = useNavigate();
+  const { showToast } = useContext(ToastContext);
+
+  useEffect(() => {
+    if (location.state && !user && !loading) {
+      toast(<span>You must log in to access this page.</span>, {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: false,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "dark",
+      });
+    }
+  }, [user, loading, location.state]);
 
   const handleLogin = (e) => {
     e.preventDefault();
@@ -20,6 +39,7 @@ const Login = () => {
       .then((result) => {
         const _user = result.user;
         navigate(`${location.state ? location.state : "/"}`);
+        showToast("Login Successfully");
       })
       .catch((error) => {
         const errorCode = error.code;
@@ -32,8 +52,10 @@ const Login = () => {
       .then((result) => {
         const user = result.user;
         setError("");
+        showToast("Login Successfully");
         setUser(user);
-        navigate("/");
+
+        navigate(`${location.state ? location.state : "/"}`);
       })
       .catch((error) => {
         console.error("Google login error:", error.message);
@@ -46,6 +68,22 @@ const Login = () => {
       <Helmet>
         <title>Login</title>
       </Helmet>
+
+      <ToastContainer
+        position="top-right"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick={false}
+        rtl={false}
+        pauseOnFocusLoss={true}
+        draggable={true}
+        pauseOnHover={true}
+        theme="dark"
+        toastClassName="bg-[#1e2835] text-[#f5eddf] border border-[#f99e72] rounded-lg shadow-md"
+        bodyClassName="text-sm font-medium flex items-center"
+        progressClassName="bg-[#f99e72]"
+      />
 
       <div className="min-h-screen flex flex-col items-center justify-center bg-gradient-to-br from-corange via-cwhite to-cdark ">
         <div className="bg-white/10 py-20 lg:w-3/7  flex flex-col justify-center items-center backdrop-blur-md border border-white/20 md:w-full rounded-xl max-sm:w-full  p-6 shadow-lg">

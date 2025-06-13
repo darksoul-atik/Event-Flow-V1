@@ -1,6 +1,8 @@
 import React, { useContext } from "react";
 import AuthContext from "../Contexts/AuthContexts";
 import { toast, ToastContainer } from "react-toastify";
+// eslint-disable-next-line no-unused-vars
+import { motion } from "framer-motion";
 
 const Profile = () => {
   const { user, updateUser, setUser } = useContext(AuthContext);
@@ -20,7 +22,6 @@ const Profile = () => {
     e.preventDefault();
     const name = e.target.name.value;
     const photoURL = e.target.photoURL.value;
-    console.log(user);
 
     const updateData = {
       displayName: name,
@@ -40,17 +41,28 @@ const Profile = () => {
           progress: undefined,
           theme: "dark",
         });
-        setUser({ ...user, ...updateData });
       })
       .catch((error) => {
-        console.error("Google login error:", error.message);
+        console.error("Update error:", error.message);
       });
   };
 
   return (
-    <div className="min-h-screen bg-cdark flex flex-col items-center py-10 px-4 gap-10 text-cwhite">
+    <motion.div
+      initial={{ opacity: 0, y: 40 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 2.3, ease: "easeInOut" }}
+      viewport={{ once: true, amount: 0.05 }}
+      className="min-h-screen bg-cdark flex flex-col items-center py-10 px-4 gap-10 text-cwhite"
+    >
       {/* Profile Card */}
-      <div className="bg-cwhite text-cdark rounded-2xl shadow-xl w-full max-w-4xl p-10 flex flex-col md:flex-row gap-10">
+      <motion.div
+        initial={{ opacity: 0, y: 40 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 2.3, ease: "easeInOut" }}
+        viewport={{ once: true, amount: 0.05 }}
+        className="bg-cwhite text-cdark rounded-2xl shadow-xl w-full max-w-4xl p-10 flex flex-col md:flex-row gap-10"
+      >
         {/* Image */}
         <div className="flex-shrink-0 flex justify-center items-start md:items-center">
           <img
@@ -65,7 +77,7 @@ const Profile = () => {
         </div>
 
         {/* Details */}
-        <div className="flex-grow  space-y-4">
+        <div className="flex-grow space-y-4">
           <h2 className="text-3xl font-bold text-corange mb-2">
             {displayName || "Unnamed User"}
           </h2>
@@ -87,7 +99,8 @@ const Profile = () => {
               <span className="font-semibold text-corange">UID:</span> {uid}
             </li>
           </ul>
-          <h2 className="text-left  font-bold mt-10">
+
+          <h2 className="text-left font-bold mt-10">
             Update Profile Information
           </h2>
 
@@ -111,7 +124,7 @@ const Profile = () => {
                 placeholder="Enter the photo URL here"
                 name="photoURL"
               />
-              <button className="btn  max-sm:btn-sm  text-corange btn-neutral mt-4">
+              <button className="btn max-sm:btn-sm text-corange btn-neutral mt-4">
                 Update Information
               </button>
               <ToastContainer
@@ -132,10 +145,16 @@ const Profile = () => {
             </form>
           </div>
         </div>
-      </div>
+      </motion.div>
 
-      {/*  Account Activity */}
-      <div className="w-full max-w-4xl bg-cwhite text-cdark rounded-2xl shadow-md p-6 space-y-4">
+      {/* Account Activity */}
+      <motion.div
+        initial={{ opacity: 0, y: 40 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 2.3, ease: "easeInOut" }}
+        viewport={{ once: true, amount: 0.05 }}
+        className="w-full max-w-4xl bg-cwhite text-cdark rounded-2xl shadow-md p-6 space-y-4"
+      >
         <h3 className="text-xl font-semibold text-cred">Account Activity</h3>
         <div className="grid md:grid-cols-2 gap-4">
           <div className="p-4 bg-cdark text-cwhite rounded-xl shadow">
@@ -147,13 +166,17 @@ const Profile = () => {
             <p>{creationTime}</p>
           </div>
         </div>
-      </div>
+      </motion.div>
 
-      {/*  Security Info */}
-      <div className="w-full max-w-4xl bg-cwhite text-cdark rounded-2xl shadow-md p-6 space-y-4">
-        <h3 className="text-xl font-semibold text-cred">
-          Security Information
-        </h3>
+      {/* Security Info */}
+      <motion.div
+        initial={{ opacity: 0, y: 40 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 2.3, ease: "easeInOut" }}
+        viewport={{ once: true, amount: 0.05 }}
+        className="w-full max-w-4xl bg-cwhite text-cdark rounded-2xl shadow-md p-6 space-y-4"
+      >
+        <h3 className="text-xl font-semibold text-cred">Security Information</h3>
         <ul className="space-y-2 text-sm">
           <li>
             <span className="font-semibold text-corange">Email Verified:</span>{" "}
@@ -170,8 +193,8 @@ const Profile = () => {
             {new Date(expirationTime).toUTCString()}
           </li>
         </ul>
-      </div>
-    </div>
+      </motion.div>
+    </motion.div>
   );
 };
 

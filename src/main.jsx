@@ -6,13 +6,16 @@ import { RouterProvider } from "react-router";
 import router from "./Routes/router.jsx";
 import EventProvider from "./Providers/EventProvider.jsx";
 import AuthProvider from "./Providers/AuthProvider.jsx";
+import {ToastProvider} from "./Providers/ToastProvider.jsx";
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
-    <AuthProvider>
-      <EventProvider>
-        <RouterProvider router={router} />
-      </EventProvider>
-    </AuthProvider>
+    <ToastProvider>
+      <AuthProvider>
+        <EventProvider>
+          <RouterProvider router={router} />
+        </EventProvider>
+      </AuthProvider>
+    </ToastProvider>
   </StrictMode>
 );
