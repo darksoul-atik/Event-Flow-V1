@@ -10,6 +10,8 @@ import Counter from "../Components/Counter";
 import { Helmet } from "react-helmet";
 // eslint-disable-next-line no-unused-vars
 import { motion } from "framer-motion";
+import { GooglePlayButton } from "react-mobile-app-button";
+import { AppStoreButton } from "react-mobile-app-button";
 
 const Home = () => {
   const { events } = useContext(EventContext);
@@ -70,6 +72,38 @@ const Home = () => {
 
       <div>
         <Counter></Counter>
+      </div>
+
+      {/* App Section */}
+      <div className="flex flex-col md:flex-row items-center justify-between gap-6 my-30 p-6  rounded-2xl">
+        {/* Phone Preview */}
+        <div className="lg:w-1/2 md:w-1/2 flex justify-center">
+          <div className="mockup-phone ">
+            <div className="mockup-phone-camera"></div>
+            <div className="mockup-phone-display">
+              <img
+                className="h-full max-sm:mx-auto py-5"
+                alt="wallpaper"
+                src="https://i.ibb.co/Zn6FW7V/dweadasdas.jpg"
+              />
+            </div>
+          </div>
+        </div>
+
+        {/* Text Section */}
+        <div className="w-full md:w-1/2 text-center md:text-left">
+          <h1 className="text-6xl font-bold text-corange mb-3">
+            Experience Events <br /> Like Never Before — Download the App Today!
+          </h1>
+          <p className="text-cwhite/80">
+            Stay connected, discover new experiences, and never miss a moment.
+            Our app is free and built just for you.
+          </p>
+          <div className="flex mt-10 gap-5">
+            <GooglePlayButton title="" height={80} theme="dark" />
+            <AppStoreButton height={80} theme="dark" />
+          </div>
+        </div>
       </div>
     </div>
   );
