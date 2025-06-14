@@ -40,7 +40,7 @@ const router = createBrowserRouter([
         ),
       },
       {
-        path: "/Reservation",
+        path: "/reservation",
         element: <Reservation></Reservation>,
       },
       {

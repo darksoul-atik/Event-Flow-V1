@@ -1,5 +1,6 @@
 import React, { useContext, useState } from "react";
-
+import { FaEyeSlash } from "react-icons/fa6";
+import { FaEye } from "react-icons/fa";
 import { Link, useNavigate } from "react-router";
 import { Helmet } from "react-helmet";
 import AuthContext from "../Contexts/AuthContexts";
@@ -9,6 +10,8 @@ const Register = () => {
     useContext(AuthContext);
   const [error, setError] = useState("");
   const navigate = useNavigate();
+
+  const [showPassword, setShowPassword] = useState(false);
 
   const handleRegister = (e) => {
     e.preventDefault();
@@ -115,17 +118,34 @@ const Register = () => {
                 />
 
                 {/* Passowrd */}
-                <label className="label  text-corange">Password</label>
-                <input
-                  type="password"
-                  className="input bg-cwhite  "
-                  placeholder="Password"
-                  name="password"
-                  required
-                />
-                <p>
-                  {error && <span className="text-cred text-sm">{error}</span>}
-                </p>
+                <div className="relative">
+                  <label className="label  text-corange">Password</label>
+                  <input
+                    type={showPassword ? "text" : "password"}
+                    className="input  bg-cwhite  "
+                    placeholder="Password"
+                    name="password"
+                    required
+                  />
+                  <div
+                    onClick={() => {
+                      setShowPassword(!showPassword);
+                    }}
+                    className="absolute cursor-pointer right-7 max-sm:right-3 bottom-3"
+                  >
+                    {showPassword ? (
+                      <FaEyeSlash size={15} className="text-cdark" />
+                    ) : (
+                      <FaEye size={15} className="text-cdark" />
+                    )}
+                  </div>
+
+                  <p>
+                    {error && (
+                      <span className="text-cred text-sm">{error}</span>
+                    )}
+                  </p>
+                </div>
 
                 {/* Register Button */}
                 <button className="btn max-sm:btn-sm  text-corange btn-neutral mt-4">
