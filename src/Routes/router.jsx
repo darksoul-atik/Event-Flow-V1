@@ -11,6 +11,7 @@ import Blogs from "../Pages/Blogs";
 import Loading from "../Components/Loading";
 import BlogDetails from "../Components/BlogDetails";
 import Reservation from "../Pages/Reservation";
+import ForgetPassword from "../Pages/ForgetPassword";
 
 const router = createBrowserRouter([
   {
@@ -76,6 +77,10 @@ const router = createBrowserRouter([
   {
     path: "/register",
     element: <Register></Register>,
+  },
+  {
+    path: "/forgetpassword",
+    element: <ForgetPassword></ForgetPassword>,
   },
 ]);
 

@@ -4,10 +4,13 @@ import { FaEye } from "react-icons/fa";
 import { Link, useNavigate } from "react-router";
 import { Helmet } from "react-helmet";
 import AuthContext from "../Contexts/AuthContexts";
+import { ToastContext } from "../Contexts/ToastContext";
+import { ToastContainer } from "react-toastify";
 
 const Register = () => {
   const { createUser, updateUser, setUser, googleLogin } =
     useContext(AuthContext);
+  const { showToast } = useContext(ToastContext);
   const [error, setError] = useState("");
   const navigate = useNavigate();
 
@@ -45,17 +48,18 @@ const Register = () => {
             .then(() => {
               setUser({ ...user, displayName: name, photoURL: photoURL });
               navigate("/");
+                 showToast("Registration successful");
             })
             .catch((error) => {
               setUser(user);
               navigate("/");
-              console.log("Error while signing up user", error);
+            showToast("Something wrong happened .Please try again",error);
             });
         })
         .catch((error) => {
-          const errorCode = error.code;
-          const errorMessage = error.message;
-          alert(errorMessage, errorCode);
+          const _errorCode = error.code;
+          const _errorMessage = error.message;
+          showToast("Email already exist");
         });
     }
   };
@@ -78,6 +82,22 @@ const Register = () => {
       <Helmet>
         <title>Sign Up</title>
       </Helmet>
+
+      <ToastContainer
+        position="top-right"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick={false}
+        rtl={false}
+        pauseOnFocusLoss={true}
+        draggable={true}
+        pauseOnHover={true}
+        theme="dark"
+        toastClassName="bg-[#1e2835] text-[#f5eddf] border border-[#f99e72] rounded-lg shadow-md"
+        bodyClassName="text-sm font-medium flex items-center"
+        progressClassName="bg-[#f99e72]"
+      />
 
       <div className="min-h-screen flex flex-col items-center justify-center bg-gradient-to-br from-corange via-cwhite to-cdark ">
         <div className="bg-white/10 py-20 lg:w-3/7  flex flex-col justify-center items-center backdrop-blur-md border border-white/20 md:w-full rounded-xl max-sm:w-full  p-6 shadow-lg">

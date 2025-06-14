@@ -17,4 +17,3 @@ export const ToastProvider = ({ children }) => {
 
   return <ToastContext value={{ showToast }}>{children}</ToastContext>;
 };
-

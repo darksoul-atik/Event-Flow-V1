@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext, useEffect, useRef, useState } from "react";
 // eslint-disable-next-line no-unused-vars
 import { motion } from "framer-motion";
 import { Link, useLocation, useNavigate } from "react-router";
@@ -14,7 +14,7 @@ const Login = () => {
   const location = useLocation();
   const navigate = useNavigate();
   const { showToast } = useContext(ToastContext);
-
+  const emailRef = useRef();
   useEffect(() => {
     if (location.state && !user && !loading) {
       toast(<span>You must log in to access this page.</span>, {
@@ -44,6 +44,7 @@ const Login = () => {
       .catch((error) => {
         const errorCode = error.code;
         setError(errorCode);
+        showToast(" Login failed. Please try again.");
       });
   };
 
@@ -51,6 +52,7 @@ const Login = () => {
     googleLogin()
       .then((result) => {
         const user = result.user;
+
         setError("");
         showToast("Login Successfully");
         setUser(user);
@@ -60,6 +62,7 @@ const Login = () => {
       .catch((error) => {
         console.error("Google login error:", error.message);
         setError("Google login failed. Please try again.");
+        showToast("Google login failed. Please try again.");
       });
   };
 
@@ -99,6 +102,8 @@ const Login = () => {
                   className="input bg-cwhite "
                   placeholder="Email"
                   name="email"
+                  ref={emailRef}
+                  required
                 />
                 <label className="label  text-corange">Password</label>
                 <input
@@ -106,25 +111,20 @@ const Login = () => {
                   className="input bg-cwhite  "
                   placeholder="Password"
                   name="password"
+                  required
                 />
 
                 {/* Forget Password  */}
                 <div>
-                  <p
-                    onClick={() => {
-                      alert("This functionality will be added soon");
-                    }}
+                  <Link
+                    to={"/forgetpassword"}
                     className="text-corange cursor-pointer"
                   >
                     Forget Password?
-                  </p>
+                  </Link>
                 </div>
-                {error && (
-                  <p className="text-red-400 text-xs">
-                    {" "}
-                    Invalid Email or The account does not exist
-                  </p>
-                )}
+
+                {error && <p className="text-red-400 text-xs">{error}</p>}
 
                 <button className="btn max-sm:btn-sm  text-corange btn-neutral mt-4">
                   Login

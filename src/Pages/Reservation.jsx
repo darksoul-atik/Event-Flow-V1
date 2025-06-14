@@ -1,10 +1,14 @@
 import React from "react";
 import { AlertTriangle } from "lucide-react";
 import { Link } from "react-router";
+import { Helmet } from "react-helmet";
 
 const Reservation = () => {
   return (
     <div className="min-h-screen flex flex-col justify-center items-center bg-cdark text-cwhite px-6 text-center">
+      <Helmet>
+        <title>EventFLOW | Reservation</title>
+      </Helmet>
       <div className="max-w-md">
         <AlertTriangle size={60} className="text-corange mb-6 mx-auto" />
         <h1 className="text-4xl font-bold mb-4 text-corange">Coming Soon.</h1>

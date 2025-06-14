@@ -3,6 +3,7 @@ import AuthContext from "../Contexts/AuthContexts";
 import { toast, ToastContainer } from "react-toastify";
 // eslint-disable-next-line no-unused-vars
 import { motion } from "framer-motion";
+import { Helmet } from "react-helmet";
 
 const Profile = () => {
   const { user, updateUser, setUser } = useContext(AuthContext);
@@ -55,6 +56,9 @@ const Profile = () => {
       viewport={{ once: true, amount: 0.05 }}
       className="min-h-screen bg-cdark flex flex-col items-center py-10 px-4 gap-10 text-cwhite"
     >
+       <Helmet>
+        <title>EventFLOW | My Profile</title>
+      </Helmet>
       {/* Profile Card */}
       <motion.div
         initial={{ opacity: 0, y: 40 }}

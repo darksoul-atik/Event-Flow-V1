@@ -3,6 +3,7 @@ import { EventContext } from "../Contexts/EventsContext";
 import { useParams } from "react-router";
 import Error404Page from "./Error404Page";
 import { toast, ToastContainer } from "react-toastify";
+import { Helmet } from "react-helmet";
 import {
   FaMapMarkerAlt,
   FaCalendarAlt,
@@ -58,6 +59,9 @@ const EventDetails = () => {
 
   return (
     <div className="min-h-screen bg-[#1e2835] text-[#f5eddf] py-10 px-4">
+      <Helmet>
+        <title>EventFLOW | Event Details</title>
+      </Helmet>
       <div className="w-full  min-h-screen mx-auto bg-[#2a3545] rounded-2xl overflow-hidden shadow-lg">
         {/* Thumbnail */}
         <div className="w-4/5 max-sm:h-72 max-sm:w-full max-sm:px-0 max-sm:py-0 lg:mt-10 mx-auto py-10 px-10 rounded-2xl border border-white/20 bg-white/10 backdrop-blur-md shadow-lg">
