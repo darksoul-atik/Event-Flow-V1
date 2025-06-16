@@ -102,8 +102,9 @@ const Home = () => {
       {/* App Section */}
       <div className="flex flex-col  md:flex-row items-center justify-between gap-6 my-30 p-6  rounded-2xl">
         {/* Phone Preview */}
-        <div className="lg:w-1/2 md:w-1/2 flex justify-center w-full ">
-          <div className="mockup-phone mx-auto max-sm:w-[350px]  ">
+
+        <div className="lg:w-1/2 md:w-1/2 flex justify-center w-full max-sm:w-[300px] ">
+          <div className="mockup-phone mx-auto max-sm:w-[200px] ">
             <div className="mockup-phone-camera max-md:w-auto w-2/5 mx-auto"></div>
             <div className="mockup-phone-display flex justify-center items-center max-sm:w-auto  md:w-auto mx-auto">
               <img
