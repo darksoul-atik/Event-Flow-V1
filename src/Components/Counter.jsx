@@ -1,7 +1,6 @@
 import React from "react";
 import CountUp from "react-countup";
 
-
 const Counter = () => {
   return (
     // Main Container
@@ -13,7 +12,8 @@ const Counter = () => {
           </h1>
 
           <p className="md:text-sm max-sm:text-sm lg:text-base max-sm:text-center">
-           "Our platform connects you with verified, skilled event planners and venues across various categories — all at your convenience."{" "}
+            "Our platform connects you with verified, skilled event planners and
+            venues across various categories — all at your convenience."{" "}
           </p>
         </div>
         {/* w-40 h-50 */}
@@ -24,9 +24,8 @@ const Counter = () => {
             {/* Card 1 */}
             <div className="card bg-base-100 shadow-sm  max-sm:w-full ">
               <div className="card-body">
-               
                 <h1 className="lg:text-4xl md:text-2xl max-sm:text-xl  font-bold text-[#0F0F0F]">
-                <CountUp end={252} duration={10} />+
+                  <CountUp end={252} duration={10} />+
                 </h1>
                 <p className="text-corange">Total Special Guests</p>
               </div>
@@ -35,7 +34,6 @@ const Counter = () => {
             {/* Card 2 */}
             <div className="card bg-base-100 shadow-sm  max-sm:w-full">
               <div className="card-body">
-              
                 <h1 className="lg:text-4xl md:text-2xl max-sm:text-xl  font-bold text-[#0F0F0F]">
                   <CountUp end={867} duration={10} />+
                 </h1>
@@ -46,7 +44,6 @@ const Counter = () => {
             {/* Card 3 */}
             <div className="card bg-base-100 shadow-sm  max-sm:w-full">
               <div className="card-body">
-                
                 <h1 className="lg:text-4xl md:text-2xl max-sm:text-xl  font-bold text-[#0F0F0F] ">
                   <CountUp end={12000} duration={10} />+
                 </h1>
@@ -57,7 +54,6 @@ const Counter = () => {
             {/* Card 4 */}
             <div className="card bg-base-100 shadow-sm max-sm:w-full">
               <div className="card-body ">
-                
                 <h1 className="lg:text-4xl md:text-2xl max-sm:text-xl  font-bold text-[#0F0F0F]">
                   <CountUp end={500} duration={10} />+
                 </h1>

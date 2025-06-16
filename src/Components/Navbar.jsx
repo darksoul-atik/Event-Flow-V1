@@ -45,7 +45,7 @@ const Navbar = () => {
             {/* Mobile Navbar */}
             <ul
               tabIndex={0}
-              className="menu menu-sm dropdown-content bg-base-100 rounded-box -ml-3 z-1 mt-3 w-52 p-2 shadow"
+              className="menu menu-sm dropdown-content bg-cdark text-corange rounded-box border z-1 mt-3 w-52 p-2 shadow"
             >
               {links}
             </ul>

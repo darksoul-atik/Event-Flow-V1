@@ -1,5 +1,5 @@
 import React from "react";
-import { useParams, useLoaderData, useNavigate,Link } from "react-router";
+import { useParams, useLoaderData, useNavigate, Link } from "react-router";
 import { AlertTriangle } from "lucide-react";
 
 const BlogDetails = () => {

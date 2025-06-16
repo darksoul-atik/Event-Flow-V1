@@ -16,11 +16,7 @@ const EventProvider = ({ children }) => {
     setEvents,
   };
 
-  return (
-    <EventContext value={eventData}>
-      {children}
-    </EventContext>
-  );
+  return <EventContext value={eventData}>{children}</EventContext>;
 };
 
 export default EventProvider;
