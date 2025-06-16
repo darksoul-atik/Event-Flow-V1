@@ -5,7 +5,7 @@ import AuthContext from "../Contexts/AuthContexts";
 import { FaUserAlt } from "react-icons/fa";
 
 const Navbar = () => {
-  const { user, logOut, loading } = useContext(AuthContext);
+  const { user, logOut, loading, setLoggedOut } = useContext(AuthContext);
   const navigate = useNavigate();
   const handleLogOut = () => {
     logOut();
@@ -19,13 +19,8 @@ const Navbar = () => {
     </>
   );
 
-  
-
-
-
   return (
     <div className="w-full bg-corange">
-
       <div className="navbar  px-0 bg-corange mx-auto max-w-screen-2xl ">
         {/* Logo of Website */}
         <div className="navbar-start">
@@ -55,13 +50,16 @@ const Navbar = () => {
               {links}
             </ul>
           </div>
-          <a onClick={() => {
-              navigate("/")
-            }} className="btn pl-0 hover:scale-110 hover:border-none btn-ghost text-xl hover:bg-transparent hover:text-inherit hover:shadow-none transition-none">
+          <a
+            onClick={() => {
+              navigate("/");
+            }}
+            className="btn pl-0 hover:scale-110 hover:border-none btn-ghost text-xl hover:bg-transparent hover:text-inherit hover:shadow-none transition-none"
+          >
             <span>
               <SiEventstore size={24} />
             </span>
-            <span  className="text-cdark max-sm:text-lg">Event</span>
+            <span className="text-cdark max-sm:text-lg">Event</span>
             <span className="text-cwhite max-sm:text-lg -ml-1">FLOW</span>
           </a>
         </div>
@@ -76,51 +74,52 @@ const Navbar = () => {
 
         {/* Login /Registratation Button */}
 
-
-      {
-        loading ? (     <div className="  navbar-end bg-corange text-center text-white">
-    <span className="loading loading-infinity loading-xl"></span>
-      </div>):(  <div className="navbar-end  items-center   flex max-sm:mr-4">
-          {/* User */}
-          <div className="relative group">
-            {!loading && user && (
-              <>
-                <div className="w-9 mr-5 flex flex-col items-center justify-center">
-                  <img
-                    className="rounded-full w-full h-9 hover:border-cwhite border-cdark border-3 cursor-pointer"
-                    src={user?.photoURL}
-                    alt="Profile"
-                  />
-                </div>
-                <div className="absolute p-1 right-16 hidden opacity-80 bottom-2 group-hover:block bg-cdark text-cwhite text-xs rounded whitespace-nowrap z-10 shadow-lg">
-                  {user.displayName}
-                </div>
-              </>
-            )}
+        {loading ? (
+          <div className="  navbar-end bg-corange text-center text-white">
+            <span className="loading loading-infinity loading-xl"></span>
           </div>
+        ) : (
+          <div className="navbar-end  items-center   flex max-sm:mr-4">
+            {/* User */}
+            <div className="relative group">
+              {!loading && user && (
+                <>
+                  <div className="w-9 mr-5 flex flex-col items-center justify-center">
+                    <img
+                      className="rounded-full w-full h-9 hover:border-cwhite border-cdark border-3 cursor-pointer"
+                      src={user?.photoURL}
+                      alt="Profile"
+                    />
+                  </div>
+                  <div className="absolute p-1 right-16 hidden opacity-80 bottom-2 group-hover:block bg-cdark text-cwhite text-xs rounded whitespace-nowrap z-10 shadow-lg">
+                    {user.displayName}
+                  </div>
+                </>
+              )}
+            </div>
 
-          {!loading && (
-            user ? (
-              <div className="">
-                <button
-                  onClick={handleLogOut}
-                  className="btn max-sm:text-xs bg-cwhite"
-                >
-                  Log Out
-                </button>
-              </div>
-            ) : (
-              <div className="">
-                <Link to="/login" className="btn max-sm:text-xs bg-cwhite">
-                  Log in
-                </Link>
-              </div>
-            )
-          )}
-        </div>)
-      }
-      
-
+            {!loading &&
+              (user ? (
+                <div className="">
+                  <button
+                    onClick={() => {
+                      handleLogOut();
+                      setLoggedOut(true);
+                    }}
+                    className="btn max-sm:text-xs bg-cwhite"
+                  >
+                    Log Out
+                  </button>
+                </div>
+              ) : (
+                <div className="">
+                  <Link to="/login" className="btn max-sm:text-xs bg-cwhite">
+                    Log in
+                  </Link>
+                </div>
+              ))}
+          </div>
+        )}
       </div>
     </div>
   );

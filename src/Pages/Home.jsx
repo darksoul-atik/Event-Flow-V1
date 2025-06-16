@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import Slider from "../Components/Slider";
 import LogoMarquee from "../Components/LogoMarquee";
 import { EventContext } from "../Contexts/EventsContext";
@@ -12,16 +12,43 @@ import { Helmet } from "react-helmet";
 import { motion } from "framer-motion";
 import { GooglePlayButton } from "react-mobile-app-button";
 import { AppStoreButton } from "react-mobile-app-button";
+import AuthContext from "../Contexts/AuthContexts";
+import { ToastContainer } from "react-toastify";
+import { ToastContext } from "../Contexts/ToastContext";
 
 const Home = () => {
   const { events } = useContext(EventContext);
   const reviewData = useLoaderData();
+  const { logged, setLogged ,loggedOut,setLoggedOut } = useContext(AuthContext);
+  
+  const { showToast } = useContext(ToastContext);
+
+  // Showing Login Toast
+  useEffect(() => {
+    if (logged) {
+      showToast("Login Successfully");
+      setLogged(false);
+    }
+  }, [logged, showToast, setLogged]);
+
+  //Showing Logged out Toast
+
+  useEffect(() => {
+    if(loggedOut){
+      showToast("Log Out Successfully!");
+      setLoggedOut(false)
+    }
+    
+  },[loggedOut,setLoggedOut,showToast])
+
 
   return (
     <div className="">
       <Helmet>
         <title>EventFLOW | Home</title>
       </Helmet>
+ 
+
       {/* Slider Container */}
       <div>
         <Slider></Slider>

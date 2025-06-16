@@ -20,6 +20,10 @@ const AuthProvider = ({ children }) => {
   //User Tracking State
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
+  const [logged,setLogged] = useState(false);
+  const [loggedOut,setLoggedOut]=useState(false);
+  const [errorMsg,setErrorMsg] =useState(false);
+  const [msgType,setmsgType] = useState(" ");
 
   //Login Functionality
   const signIn = (email, password) => {
@@ -74,11 +78,19 @@ const AuthProvider = ({ children }) => {
     createUser,
     logOut,
     signIn,
+    forgetPassword,
+    googleLogin,
+    updateUser,
     loading,
     setLoading,
-    updateUser,
-    googleLogin,
-    forgetPassword,
+    logged,
+    setLogged,
+    loggedOut,
+    setLoggedOut,
+    errorMsg,
+    setErrorMsg,
+    msgType,
+    setmsgType,
   };
 
   return <AuthContext value={authData}>{children}</AuthContext>;

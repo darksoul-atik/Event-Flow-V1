@@ -48,18 +48,20 @@ const Register = () => {
             .then(() => {
               setUser({ ...user, displayName: name, photoURL: photoURL });
               navigate("/");
-                 showToast("Registration successful");
+              showToast("Registration successful");
             })
             .catch((error) => {
               setUser(user);
               navigate("/");
-            showToast("Something wrong happened .Please try again",error);
+              showToast("Something wrong happened .Please try again", error);
             });
         })
         .catch((error) => {
           const _errorCode = error.code;
           const _errorMessage = error.message;
-          showToast("Email already exist");
+          showToast(
+            "Email already exist, Please try with different Email or Reset Password"
+          );
         });
     }
   };

@@ -8,12 +8,20 @@ import { toast, ToastContainer } from "react-toastify";
 import { ToastContext } from "../Contexts/ToastContext";
 
 const Login = () => {
-  const { signIn, googleLogin, setUser, user, loading } =
-    useContext(AuthContext);
+  const {
+    signIn,
+    googleLogin,
+    setUser,
+    user,
+    loading,
+    setLogged,
+    setErrorMsg,
+    setMsgType,
+  } = useContext(AuthContext);
+  const { showToast } = useContext(ToastContext);
   const [error, setError] = useState("");
   const location = useLocation();
   const navigate = useNavigate();
-  const { showToast } = useContext(ToastContext);
   const emailRef = useRef();
   useEffect(() => {
     if (location.state && !user && !loading) {
@@ -39,12 +47,16 @@ const Login = () => {
       .then((result) => {
         const _user = result.user;
         navigate(`${location.state ? location.state : "/"}`);
-        showToast("Login Successfully");
+        setLogged(true);
       })
       .catch((error) => {
         const errorCode = error.code;
         setError(errorCode);
-        showToast(" Login failed. Please try again.");
+        setErrorMsg(true);
+        setMsgType(error.message);
+        showToast(
+          "Sorry something wrong happened when trying to log in, Please try again!"
+        );
       });
   };
 
@@ -52,17 +64,18 @@ const Login = () => {
     googleLogin()
       .then((result) => {
         const user = result.user;
-
         setError("");
-        showToast("Login Successfully");
         setUser(user);
-
         navigate(`${location.state ? location.state : "/"}`);
+        setLogged(true);
       })
       .catch((error) => {
-        console.error("Google login error:", error.message);
         setError("Google login failed. Please try again.");
-        showToast("Google login failed. Please try again.");
+        setErrorMsg(true);
+        setMsgType(error.message);
+        showToast(
+          "Sorry something wrong happened when trying to log in, Please try again!"
+        );
       });
   };
 
