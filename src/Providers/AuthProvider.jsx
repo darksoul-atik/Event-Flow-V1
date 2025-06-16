@@ -20,10 +20,10 @@ const AuthProvider = ({ children }) => {
   //User Tracking State
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
-  const [logged,setLogged] = useState(false);
-  const [loggedOut,setLoggedOut]=useState(false);
-  const [errorMsg,setErrorMsg] =useState(false);
-  const [msgType,setmsgType] = useState(" ");
+  const [logged, setLogged] = useState(false);
+  const [loggedOut, setLoggedOut] = useState(false);
+  const [errorMsg, setErrorMsg] = useState(false);
+  const [msgType, setmsgType] = useState(" ");
 
   //Login Functionality
   const signIn = (email, password) => {
@@ -57,7 +57,7 @@ const AuthProvider = ({ children }) => {
   //Forget Password
 
   const forgetPassword = (email) => {
-    return sendPasswordResetEmail(auth,email);
+    return sendPasswordResetEmail(auth, email);
   };
 
   //Auth Observer

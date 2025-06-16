@@ -24,7 +24,6 @@ const Register = () => {
     const photoURL = form.photoURL.value;
     const email = form.email.value;
     const password = form.password.value;
-    console.log(name, photoURL, email, password);
 
     if (password.length < 6) {
       setError("Password should be at least 6 characters long");

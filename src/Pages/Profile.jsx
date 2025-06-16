@@ -56,7 +56,7 @@ const Profile = () => {
       viewport={{ once: true, amount: 0.05 }}
       className="min-h-screen bg-cdark flex flex-col items-center py-10 px-4 gap-10 text-cwhite"
     >
-       <Helmet>
+      <Helmet>
         <title>EventFLOW | My Profile</title>
       </Helmet>
       {/* Profile Card */}
@@ -180,7 +180,9 @@ const Profile = () => {
         viewport={{ once: true, amount: 0.05 }}
         className="w-full max-w-4xl bg-cwhite text-cdark rounded-2xl shadow-md p-6 space-y-4"
       >
-        <h3 className="text-xl font-semibold text-cred">Security Information</h3>
+        <h3 className="text-xl font-semibold text-cred">
+          Security Information
+        </h3>
         <ul className="space-y-2 text-sm">
           <li>
             <span className="font-semibold text-corange">Email Verified:</span>{" "}

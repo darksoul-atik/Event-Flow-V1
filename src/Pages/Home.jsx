@@ -19,8 +19,9 @@ import { ToastContext } from "../Contexts/ToastContext";
 const Home = () => {
   const { events } = useContext(EventContext);
   const reviewData = useLoaderData();
-  const { logged, setLogged ,loggedOut,setLoggedOut } = useContext(AuthContext);
-  
+  const { logged, setLogged, loggedOut, setLoggedOut } =
+    useContext(AuthContext);
+
   const { showToast } = useContext(ToastContext);
 
   // Showing Login Toast
@@ -34,20 +35,17 @@ const Home = () => {
   //Showing Logged out Toast
 
   useEffect(() => {
-    if(loggedOut){
+    if (loggedOut) {
       showToast("Log Out Successfully!");
-      setLoggedOut(false)
+      setLoggedOut(false);
     }
-    
-  },[loggedOut,setLoggedOut,showToast])
-
+  }, [loggedOut, setLoggedOut, showToast]);
 
   return (
     <div className="">
       <Helmet>
         <title>EventFLOW | Home</title>
       </Helmet>
- 
 
       {/* Slider Container */}
       <div>
