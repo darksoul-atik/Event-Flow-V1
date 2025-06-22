@@ -125,7 +125,7 @@ const Home = () => {
             Stay connected, discover new experiences, and never miss a moment.
             Our app is free and built just for you.
           </p>
-          <div className="flex justify-center  p-2 mt-10 gap-5">
+          <div className="flex max-sm:justify-center  p-2 mt-10 gap-5">
             <GooglePlayButton title="" height={100} theme="dark" />
             <AppStoreButton height={100} theme="dark" />
           </div>
